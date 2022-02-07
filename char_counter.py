@@ -2,10 +2,10 @@ import os
 import sys
 import re
 
-get_input_path = re.compile(r"\\input{(.*?)}")
-
 
 def resolve_inputs(path, cwd):
+    get_input_path = re.compile(r"\\input{(.*?)}")
+
     with open(path, "r") as fd:
         contents = fd.read()
 
