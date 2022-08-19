@@ -2,7 +2,11 @@
 
 main() {
     if [ -x "$(command -v python)" ]; then
-        read -e -p "Please enter path to main .tex file: " -r test
+        if [ -z "$1" ]; then
+            read -e -p "Please enter path to main .tex file: " -r test
+        else
+            test="$1"
+        fi
 
         if [ -z "$test" ]; then
             echo "No path specified."
@@ -23,7 +27,7 @@ main() {
     fi
 }
 
-main
+main "$1"
 ret_code=$?
 echo -e "\nThis terminal window can be closed quickly with CMD-D."
 read
